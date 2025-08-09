@@ -1,5 +1,9 @@
 import SEO from "@/components/seo/SEO";
 import { useTranslation } from "react-i18next";
+import provisions from "@/assets/gallery-provisions.jpg";
+import ropes from "@/assets/gallery-ropes-tools.jpg";
+import engine from "@/assets/gallery-engine-spares.jpg";
+import bridge from "@/assets/gallery-bridge-galley.jpg";
 
 export default function Services() {
   const { i18n } = useTranslation();

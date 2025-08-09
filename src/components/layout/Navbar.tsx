@@ -3,9 +3,25 @@ import LanguageToggle from "@/components/common/LanguageToggle";
 import ThemeToggle from "@/components/common/ThemeToggle";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
 export default function Navbar() {
   const { t } = useTranslation();
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const init = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setIsLoggedIn(!!session);
+    };
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setIsLoggedIn(!!session);
+    });
+    init();
+    return () => subscription.unsubscribe();
+  }, []);
 
   const navItems = [
     { to: "/", label: t("nav.home") },
@@ -20,7 +36,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-background/80 glass border-b">
       <nav className="container flex items-center justify-between py-3">
         <Link to="/" className="flex items-center gap-3">
-          <img src="/lovable-uploads/07bf04ef-0709-4138-9556-8ff6233d5609.png" alt="Sea Greats logo" className="h-8 w-8 rounded-md" />
+          <img src="/lovable-uploads/a2451cf2-cf3c-44d8-a11b-c263cc741db5.png" alt="Sea Greats logo" className="h-8 w-8 rounded-md" />
           <span className="font-bold tracking-wide">{t("brand")}</span>
         </Link>
 

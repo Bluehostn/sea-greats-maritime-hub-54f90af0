@@ -1,10 +1,13 @@
 import SEO from "@/components/seo/SEO";
 import { useTranslation } from "react-i18next";
+import provisions from "@/assets/gallery-provisions.jpg";
+import ropes from "@/assets/gallery-ropes-tools.jpg";
+import engine from "@/assets/gallery-engine-spares.jpg";
 
 const posts = [
-  { title: "Checklist: Provisioning Before Canal Transit", excerpt: "How to prepare your item list and schedule for fast turnarounds.", category: "Operations" },
-  { title: "Selecting Mooring Lines for Tankers", excerpt: "Safety and longevity considerations for deck stores.", category: "Deck" },
-  { title: "Engine Spares That Save Time", excerpt: "Critical spares to reduce downtime in port.", category: "Engine" },
+  { title: "Checklist: Provisioning Before Canal Transit", excerpt: "How to prepare your item list and schedule for fast turnarounds.", category: "Operations", image: provisions },
+  { title: "Selecting Mooring Lines for Tankers", excerpt: "Safety and longevity considerations for deck stores.", category: "Deck", image: ropes },
+  { title: "Engine Spares That Save Time", excerpt: "Critical spares to reduce downtime in port.", category: "Engine", image: engine },
 ];
 
 export default function Blog() {
